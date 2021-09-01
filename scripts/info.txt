@@ -1,6 +1,8 @@
 Cytoband data downloaded from here: http://hgdownload.cse.ucsc.edu/goldenpath/hg38/database/cytoBand.txt.gz
 Only main chromosomes kept.
 
+DELIMITERS HAVE BEEN ADDED MANUALLY
+
 bgzip -c file.vcf > file.vcf.gz
 tabix -p vcf file.vcf.gz
 
