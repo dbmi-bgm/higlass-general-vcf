@@ -1,0 +1,47 @@
+Cytoband data downloaded from here: http://hgdownload.cse.ucsc.edu/goldenpath/hg38/database/cytoBand.txt.gz
+Only main chromosomes kept.
+
+bgzip -c file.vcf > file.vcf.gz
+tabix -p vcf file.vcf.gz
+
+
+There should be little difference between the cytoBand.txt and the
+cytoBandIdeo.txt
+files. Each of our data tracks is supported by one file (table in the
+database) with
+coordinates for mapping. The *Ideo* file underlies the graphic display
+of the
+cytoband data in the small ideogram graphic above the main Browser display.
+
+The cytoBandIdeo file/table has been modified from the cytoBand
+file/table for
+purposes of the display in the ideogram. The cytoBand table/file
+underlies the
+data track in the main Browser graphic and should be the file used for most
+purposes.
+
+The items in the last column refer to the coloring you see in the both the
+Browser graphic and in the ideogram above. The first 5 in the list below
+reflect the level of color obtained via Giemsa staining; "acen" is
+centromeric;
+"stalk" refers to the short arm of acrocentric chromosomes
+chr13,14,15,21,22;
+"gvar" bands tend to be heterochomatin, either pericentric or telomeric.
+The
+best way to see for your self is to look at the regions in the Genome
+Browser.
+
+<pre>
++----------+
+| gieStain |
++----------+
+| gneg |
+| gpos25 |
+| gpos50 |
+| gpos75 |
+| gpos100 |
+| acen |
+| gvar |
+| stalk |
++----------+
+</pre>
