@@ -6,7 +6,9 @@
 Higlass VCF track documentation
 ===============================
 
-The VCF track is a Higlass plugin track, that was designed to visualize general VCF files.
+The VCF track is a Higlass plugin track, that was designed to visualize general VCF files. 
+
+**Please note:** This track is in an early stage of development. Display configurations and features are likely to change. 
 
 .. toctree::
    :hidden:
