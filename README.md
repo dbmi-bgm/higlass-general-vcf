@@ -1,2 +1,4 @@
-# higlass-general-vcf
-Plugin track that can visualize general VCF files
+# Higlass VCF track
+Higlass plugin track that can visualize general VCF files.
+
+Documentation: https://higlass-vcf.readthedocs.io/en/latest/
