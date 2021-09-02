@@ -3,18 +3,22 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Higlass VCF track's documentation!
-=============================================
+Higlass VCF track documentation
+===============================
+
+The VCF track is a Higlass plugin track, that was designed to visualize general VCF files.
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+   :hidden:
+
+   self
+
+.. toctree::
+  :maxdepth: 2
+
+  Installation
+  Configuration
+  Examples
 
 
 
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`

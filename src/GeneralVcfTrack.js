@@ -751,6 +751,7 @@ varying vec4 vColor;
 
         if (!(segment.id in this.svTexts)) {
           let fontName = 'SegmentLabel';
+          
           if('label' in this.displayConfiguration && this.displayConfiguration.label.color === "automatic"){
             fontName = isLightOrDark(segment.colorHex) === "light" ? 'SegmentLabelDark' : 'SegmentLabelLight';
           }

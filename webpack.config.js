@@ -45,8 +45,8 @@ const workerConfig = {
 
 const libraryConfig = {
   output: {
-    filename: 'higlass-general-sv.min.js',
-    library: 'higlass-general-sv',
+    filename: 'higlass-general-vcf.min.js',
+    library: 'higlass-general-vcf',
     libraryTarget: 'umd',
     path: path.resolve(__dirname, 'dist'),
   },

@@ -76,7 +76,7 @@ export const vcfRecordToJson = (vcfRecord, chrName, chrOffset, displayConfigurat
   }
 
   let colorIndex = 0;
-  let colorHex = "#ededed";
+  let colorHex = "#000000";
   if(displayConfiguration.hasOwnProperty('color')){
     let determiningValue = extractDataField(vcfRecord, displayConfiguration.color.field);
     if(determiningValue === null){
