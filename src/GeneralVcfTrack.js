@@ -836,19 +836,10 @@ varying vec4 vColor;
         `translate(${this.pMain.position.x},${this.pMain.position.y}) scale(${this.pMain.scale.x},${this.pMain.scale.y})`,
       );
 
-      const gSegment = document.createElement('g');
-
-      gSegment.setAttribute(
-        'transform',
-        `translate(${this.segmentGraphics.position.x},${this.segmentGraphics.position.y})` +
-          `scale(${this.segmentGraphics.scale.x},${this.segmentGraphics.scale.y})`,
-      );
-
-      output.appendChild(gSegment);
-
       if (this.segmentGraphics) {
+        const gSegment = document.createElement('g');
+        output.appendChild(gSegment);
         const b64string = HGC.services.pixiRenderer.plugins.extract.base64(
-          // this.segmentGraphics, 'image/png', 1,
           this.pMain.parent.parent,
         );
 
@@ -864,8 +855,6 @@ varying vec4 vColor;
         );
         gImage.appendChild(image);
         gSegment.appendChild(gImage);
-
-        // gSegment.appendChild(image);
       }
 
       return [base, base];
