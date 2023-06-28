@@ -1,3 +1,8 @@
+import {color} from 'd3-color';
+
+export const getRgba = (c) => {
+  return color(c);
+}
 
 export const isLightOrDark = (color) => {
 
