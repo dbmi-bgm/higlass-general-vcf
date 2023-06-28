@@ -1,30 +1,28 @@
 import VCFDataFetcher from './vcf-fetcher';
 import VariantAligner from './vcf-align';
 import { spawn, BlobWorker } from 'threads';
-import { vcfRecordToJson, isLightOrDark } from './vcf-utils';
+import { vcfRecordToJson, isLightOrDark, getRgba } from './vcf-utils';
 import { TabixIndexedFile } from '@gmod/tabix';
 import VCF from '@gmod/vcf';
 import { RemoteFile } from 'generic-filehandle';
 import { ChromosomeInfo, absToChr } from './chrominfo-utils';
 import MyWorkerWeb from 'raw-loader!../dist/worker.js';
 import sanitizeHtml from 'sanitize-html';
-import hexToRgba from 'hex-to-rgba';
 
 const createColorTexture = (PIXI, colors) => {
   const colorTexRes = Math.max(2, Math.ceil(Math.sqrt(colors.length)));
 
   const rgba = new Float32Array(colorTexRes ** 2 * 4);
   colors.forEach((color, i) => {
-    const rgbaStr = hexToRgba(color);
-    const rgbaArr = rgbaStr.substring(5, rgbaStr.length - 1).split(",").map((e)=> parseFloat(e));
+    const c = getRgba(color); 
     // eslint-disable-next-line prefer-destructuring
-    rgba[i * 4] = rgbaArr[0]/265; // r
+    rgba[i * 4] = c.r/265; // r
     // eslint-disable-next-line prefer-destructuring
-    rgba[i * 4 + 1] = rgbaArr[1]/265; // g
+    rgba[i * 4 + 1] = c.g/265; // g
     // eslint-disable-next-line prefer-destructuring
-    rgba[i * 4 + 2] = rgbaArr[2]/265; // b
+    rgba[i * 4 + 2] = c.b/265; // b
     // eslint-disable-next-line prefer-destructuring
-    rgba[i * 4 + 3] = rgbaArr[3]; // a
+    rgba[i * 4 + 3] = c.opacity; // a
   });
 
   return [PIXI.Texture.fromBuffer(rgba, colorTexRes, colorTexRes), colorTexRes];
@@ -330,7 +328,6 @@ const GeneralVcfTrack = (HGC, ...args) => {
       // This initializes all colors that are specified in the display configuration.
       // Only these colors can be used.
       // Black or default is at index 0
-      //console.log(hexToRgba("#11223344"));
       const colors = [];
       if(this.displayConfiguration.hasOwnProperty('color')){
         if(this.displayConfiguration.color.hasOwnProperty('default')){
